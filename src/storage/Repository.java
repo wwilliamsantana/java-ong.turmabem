@@ -1,7 +1,6 @@
 package storage;
 
 import entities.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,4 +25,23 @@ public class Repository {
 
     public void addCriterio(CriterioSelecao c) { criterios.add(c); }
     public List<CriterioSelecao> getCriterios() { return criterios; }
+
+    public List<Beneficiario> getBeneficiarios() {
+        List<Beneficiario> listaFiltrada = new ArrayList<>();
+        for (Pessoa p : pessoas) {
+            if (p instanceof Beneficiario) {
+                listaFiltrada.add((Beneficiario) p); // Converte (cast) Pessoa para Beneficiario
+            }
+        }
+        return listaFiltrada;
+    }
+    public List<Dentista> getDentistas() {
+        List<Dentista> listaFiltrada = new ArrayList<>();
+        for (Pessoa p : pessoas) {
+            if (p instanceof Dentista) {
+                listaFiltrada.add((Dentista) p); // Converte (cast) Pessoa para Dentista
+            }
+        }
+        return listaFiltrada;
+    }
 }
